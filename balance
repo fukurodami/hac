@@ -1,0 +1,11 @@
+from web3 import Web3
+
+#адрес инфура
+infura_url = 'https://mainnet.infura.io/v3/55a3b0d210fc4136afda985e9063e805'
+web3 = Web3(Web3.HTTPProvider(infura_url))
+
+#функция запроса баланса(нужно передать адрес даланса для запроса)
+def take_balance(addres_user):
+    #addres_user = "0x835d33A119cD4a5e50F89A4a2C2D84F3Ef4bd91B"
+    balance = web3.fromWei(web3.eth.get_balance(addres_user), 'ether')
+    print("addres_user: ->", addres_user, "balance_user: ->", balance)
